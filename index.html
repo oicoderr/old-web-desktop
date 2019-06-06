@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Desktop Applications</title>
+	<link rel="stylesheet" href="style/index.css"> 
+	<link rel="stylesheet" href="style/global.css"> 
+	<link rel="stylesheet" href="style/reset.css">
+	<link rel="stylesheet" href="style/tool.css">
+	<!-- index.ico  网站头像 -->
+	<link rel="icon" type="Deskicon/ico" href="img/Deskicon/index.ico" />
+	<!-- Ali svg icon 库 -->
+	<link rel="stylesheet" href="img/Xt-icon/iconfont.css"/>"
+	<!--[if lt IE 8]>
+	<link rel="stylesheet" href="style/fix.css" />
+	<![endif]-->
+	<!-- 兼容h5 标签 js -->
+	<script src="js_Quote/html5shiv.js"></script>
+	<script src="js_Quote/jquery-3.1.1.min.js"></script>
+	<!-- 解决window.onresize 多次被触发 -->
+	<script src="js_Quote/jquery.wresize.js"></script>
+	<!-- 解决IE6.7png24问题 -->
+	<script src="js_Quote/DD_belatedPNG_0.0.8a.js"></script>
+	<script>
+		DD_belatedPNG.fix("img")
+	</script>
+</head>
+<body>
+	<!-- 右键菜单 -->
+	<section class="RightMenu" id="RightMenu">
+		<div class="menu_panel">
+			<ul class="menuList" id="menuList">
+				<li>
+					<span class="Ricon"></span>
+					<span class="text">查看(V)</span>
+					<i class="ic arrow"></i>
+					<div class="smallMenu currR" id="seeWay" style="top: -2px;">
+						<a href="javascript:;">小图标</a>
+						<a href="javascript:;">大图标</a>
+						<a href="javascript:;">中等图标</a>
+					</div>
+				</li>
+
+				<li>
+					<span class="Ricon"></span>
+					<span class="text">排序方式(O)</span>
+					<i class="ic arrow"></i>
+					<div class="smallMenu currR" id="sorts">
+						<a href="javascript:;">名称</a>
+						<a href="javascript:;">大小</a>
+						<a href="javascript:;">修改日期</a>
+						<a href="javascript:;">项目类型</a>
+					</div>
+				</li>
+
+				<li>
+					<span class="Ricon"></span>
+					<span class="text">刷新(E)</span>
+				</li>
+
+				<li>
+					<span class="Ricon"></span>
+					<span class="text">新建(N)</span>
+					<i class="ic arrow"></i>
+					<div class="smallMenu currR" id="sorts">
+						<a href="javascript:;" style="padding-left: 10px;">
+							<span class="Ricon_r pos1"></span>
+							文件夹
+						</a>
+						<a href="javascript:;" style="padding-left: 10px;">
+							<span class="Ricon_r pos2"></span>
+							快捷方式
+						</a>
+						<a href="javascript:;" style="padding-left: 10px;">
+							<span class="Ricon_r pos3"></span>
+							文本文档
+						</a>
+					</div>
+				</li>
+
+				<li>
+					<span class="Ricon"></span>
+					<span class="text">显示设置</span>
+				</li>
+				<li>
+					<span class="Ricon"></span>
+					<span class="text">个性化</span>
+				</li>
+				<li>
+					<span class="Ricon"></span>
+					<span class="text">控制面板</span>
+				</li>
+				<li>
+					<span class="Ricon"></span>
+					<span class="text">清除本地缓存</span>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<!-- deskC -->
+	<section class="desk-continer" id="deskContiner">
+		<!-- 头部导航 -->
+		<header id="header">
+			<div class="header_menu">
+				<div class="tool">
+					<ul style="height: 30px; width: auto;">
+						<li>
+							<div class="tools">工具</div>
+						</li>
+						<li>
+							<div class="Admin_login" title="点击登录/注册"></div>
+						</li>
+					</ul>
+				</div>
+				<div class="login_Admin">
+					<span class="login_icon">
+						<img src="img/Deskicon/user_login.png" id="Headpt">
+						<span id="Myuser"></span>
+						<a href="javascript:;" class="login_end">[ 退出 ]</a>
+					</span>
+				</div>
+			</div>
+			<!-- 拉线更换桌面壁纸   -->
+			<div id="Lawo">
+				<img src="img/Deskicon/lawo.png" title="替换更多壁纸" class="desk_img">
+			</div>
+		</header>
+		<!-- 桌面遮罩 -->
+		<div id="deskMask"></div>
+		<div id="AppBox"></div>
+		<!--<div class="file" id="myComputer" style="left: 10px; top: 10px;">-->
+			<!--<div class="Ricon computer"></div>-->
+			<!--<p class="fileName">计算机</p>-->
+		<!--</div>-->
+		<!--<div class="file" id="garbage" style="left: 10px; top: 110px;">-->
+			<!--<div class="Ricon garbage"></div>-->
+			<!--<p class="fileName">回收站</p>-->
+		<!--</div>-->
+		<!--<div class="file" id="music" style="left: 10px; top: 210px;">-->
+			<!--<div class="Ricon music"></div>-->
+			<!--<p class="fileName">音乐</p>-->
+		<!--</div>-->
+		<!--<div class="file" id="calendar_" style="left: 10px; top: 310px;">-->
+			<!--<div class="Ricon calendar_"></div>-->
+			<!--<p class="fileName">日历</p>-->
+		<!--</div>-->
+		<!--<div id="shadow"></div>-->
+		<footer id="footer">
+			<div id="footer_icon_list">
+				<!-- 开始按钮 -->
+				<div id="begin" >
+					<!-- 开始icon图标 -->
+					<a class="start" title="开始">
+						<i class="icon iconfont startIcon Icon_Style" style="font-size: 30px;">&#xe6c4;</i>
+					</a>
+					<!-- 开始菜单 -->
+					<div id="menu" style="display: none;">
+						<div class="begin_menu">
+							<div class="admin">
+								<img class="admin_pic" src="img/Deskicon/admin.png" title="个人设置">
+							</div>
+							<div class="menuL">
+								<ul>
+									<li style="margin-top: 0" title="1">
+										<i class="icon iconfont Little_Ie" style="font-size: 12px;">&#xe637;</i><span class="Fstyle" style="margin-left: 10px">Internet Explorer</span>
+									</li>
+									<li  title="2">
+										<img src="img/Deskicon/xt-qq.png" class="Little_qq"/><span class="Fstyle">腾讯QQ</span>
+									</li>
+									<li  title="3">
+										<img src="img/Deskicon/little_book.png" class="Little_book"/><span class="Fstyle">Sublime Text 3</span>
+									</li>
+								</ul>
+								<div class="allApp">
+									<div class="allApp_border" title="打开所有程序。">
+										<i class="icon iconfont Little_direction" style="font-size: 16px">&#xe615;</i><span class="allApp_info">所有程序</span>
+									</div>
+								</div>
+								<div class="menu_search">
+									<input type="text" placeholder="搜索程序和文件" id="search" autofocus>
+									<i class="icon iconfont Little_search" style="font-size: 20px">&#xe62e;</i>
+								</div>
+							</div>
+							<div class="menuR">
+								<ul class="menu_1">
+									<li style="	margin-top: 12px;" title="打开个人文件夹。">
+										<a href="javascript:;">Administrator</a>
+									</li>
+									<li title="访问信件、报告、便笺以及其他类型的文档。">
+										<a href="javascript:;">文档</a>
+									</li>
+									<li title="在计算机上运行和管理游戏。">
+										<a href="javascript:;">游戏</a>
+									</li>
+									<li title="查看连接到计算机的磁盘驱动器和其他硬件。">
+										<a href="javascript:;">计算机</a>
+									</li>
+									<li title="访问网络上的计算机和设备。">
+										<a href="javascript:;">网络</a>
+									</li>
+									<li title="更改您的计算机设置并自定义其功能。">
+										<a href="javascript:;">控制面板</a>
+									</li>
+									<li>
+										<a href="javascript:;">管理工具</a>
+										<i class="icon iconfont Little_right" style="font-size: 12px">&#xe615;</i>
+									</li>
+									<li title="打开一个程序、文件夹、文档或网站。">
+										<a href="javascript:;">运行...</a>
+									</li>
+								</ul>
+								<div id="close">
+									<div class="close_one" title="关闭所有打开的程序，关闭Windows，然后关闭计算机。">
+										<a href="javascript:;">关机</a>
+									</div>
+									<div class="close_or" title="选择">
+										<i class="icon iconfont" style="font-size: 12px; color: #ffffff">&#xe615;</i>
+										<div id="close_menu">
+											<ul class="menu_2">
+												<div class="blone"></div>
+												<li><a href="javascript:;" title="不关闭程序切换用户。">切换用户(W)</a></li>
+												<li><a href="javascript:;" title="关闭程序并注销。">注销(L)</a></li>
+												<li><a href="javascript:;" title="锁定该计算机。">锁定(O)</a></li>
+												<li class="close_menu_border"><a href="javascript:;" title="关闭所有打开的程序，关闭Windows，然后关闭计算机。">重新启动(R)</a></li>
+												<li style="line-height: 26px;"><a href="javascript:;" title="讲会话保存在内存中并将计算机置于低功耗状态，这样即可快速恢复工作状态。">睡眠(S)</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 自定义icon -->
+				<ul class="icon_lists celearfix">
+					<li style="margin-left: 16px;">
+						<img src="img/Deskicon/xt-jh.png" class="Icon_Style"/>
+					</li>
+					<li>
+						<img src="img/Deskicon/xt-ie.png" class="Icon_Style"/>
+					</li>
+					<li style="margin-left: 2px;">
+						<img src="img/Deskicon/xt-qq.png" class="Icon_Style"/>
+					</li>
+				</ul>
+				<!-- 系统icon -->
+				<ul class="Xt_icon celearfix">
+					<li title="Intenet 访问" style="margin-right: 17px">
+						<i class="icon iconfont wifi ShareStyle" style="font-size: 16px">&#xe635;</i>
+					</li>
+					<li title="扬声器:18%">
+						<i class="icon iconfont volume ShareStyle" style="font-size: 16px">&#xe618;</i>
+					</li>
+					<li title="100% 可用(电源已接通)">
+						<i class="icon iconfont plug ShareStyle" style="font-size: 20px">&#xe639;</i>
+					</li>
+					<li>
+						<i class="icon iconfont reduction ShareStyle" title="还原">&#xe65f;</i>
+						<i class="icon iconfont down ShareStyle" title="选项">&#xe61b;</i>
+					</li>
+					<li title="帮助">
+						<i class="icon iconfont help ShareStyle" style="font-size: 18px;">&#xe7fc;</i>
+					</li>
+					<li style="width: 26px;" title="输入法">
+						<i class="icon iconfont TypeW ShareStyle" style="font-size: 24px;">&#xe6c8;</i>
+					</li>
+				</ul>
+				<!-- 显示桌面按钮 -->
+				<div id="Back"></div>
+			</div>
+		</footer>
+		<div id="shadow"></div>
+	</section>
+	<!--日历-->
+	<section id="calendar" class="calendar" style="display: none;"></section>
+	<!-- 日期控件 -->
+	<section id="DTpicker">
+		<div class="date_main">
+			<div class="date_left">
+				<ul class="styleCircle">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<div class="main">
+					<p class="month"></p>
+					<p class="day"></p>
+				</div>
+			</div>
+
+			<div class="date_right">
+				<p class="time"></p>
+				<p class="date"></p>
+				<p class="week"></p>
+			</div>
+		</div>
+	</section>
+	<!-- 用户注册/登录 -->
+	<section class="login-wrap" style="display: none;">
+		<div class="login-html">
+			<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+			<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+			<div class="login-form">
+				<div class="sign-in-htm"> <!-- 登录 -->
+					<div class="group" style="margin-bottom: 2px;">
+						<label for="sign_In_username" class="label">Username</label>
+						<input id="sign_In_username" type="text" class="input"  placeholder="请输入用户名" name="in_name">
+						<div class="sign_In_username_text"></div>
+					</div>
+					<div class="group"  style="margin-bottom: 6px;">
+						<label for="sign_In_passwd" class="label">Password</label>
+						<input id="sign_In_passwd" type="password" class="input" data-type="password"  placeholder="请输入密码" name="in_password">
+						<div class="sign_In_passwd_text"></div>
+					</div>
+					<div class="group">
+						<input id="check" type="checkbox" class="check" checked>
+						<label for="check"><span class="icon"></span> Keep me Signed in</label>
+					</div>
+					<div class="group">
+						<input type="button" id="sign_in" class="button" value="Sign In">
+					</div>
+					<div class="hr"></div>
+					<div class="foot-lnk">
+						<a href="#forgot" id="find_pass">Forgot Password?</a>
+					</div>
+				</div>
+				<div class="sign-up-htm"> <!-- 注册 -->
+					<div class="group" style="margin-bottom: 0;">
+						<label for="signUp_username" class="label">Username</label>
+						<input id="signUp_username" type="text" class="input" placeholder="请输入用户名" name="up_name">
+						<div class="signUp_username_text">3~16个字符，可使用字母、数字、下划线</div>
+					</div>
+					<div class="group" style="margin-bottom: 0;">
+						<label for="signUp_passwd" class="label">Password</label>
+						<input id="signUp_passwd" type="password" class="input" data-type="password" placeholder="请输入密码" name="up_password">
+						<div class="signUp_passwd_text">6-16位字符（字母、数字、特殊符号）,区分大小写</div>
+					</div>
+					<div class="group" style="margin-bottom: 4px;">
+						<label for="signUp_repasswd" class="label">Repeat Password</label>
+						<input id="signUp_repasswd" type="password" class="input" data-type="password" placeholder="再次确认密码" name="up_dbpassword">
+						<div class="signUp_repasswd_text">请再次填写密码</div>
+					</div>
+					<div class="group">
+						<input type="button" id="sign_up" class="button" value="Sign Up" >
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- 网易云music 播放器 -->
+	<section class="iframe"  id="iframeMusic">
+		<a href="javascript:void(0)" id="goback" class="goback">返回</a>
+		<iframe frameborder="0" src="music/index.html"></iframe>
+	</section>
+	<!-- ajax -->
+	<script src="js/ajax.js"></script>
+	<!-- pc_版本兼容 -->
+	<script src="js/pc_compatible.js"></script>
+	<!-- 运动函数　-->
+	<script src="js/tween.js"></script>
+	<!-- 日历部件js -->
+	<script src="js/calendar.js"></script>
+	<!-- 桌面文件 -->
+	<script src="js/file_data.js"></script>
+	<!-- 整体js -->
+	<script src="js/index.js"></script>
+	<!-- 拖拽 -->
+	<script src="js/Drags.js"></script>
+	<!-- 注册 登录 验证  -->
+	<script src="js/login_up.js"></script>
+	<script src="js/footer.js"></script>
+</body>
+</html>

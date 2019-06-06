@@ -1,0 +1,8 @@
+.clearfix:after{
+	content: "";
+	display: inline;
+	clear: both;
+}
+.celearfix{
+	_zoom: 1;
+}

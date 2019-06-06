@@ -1,0 +1,24 @@
+blockquote,body,em,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul,html
+{
+	margin:0;padding:0;
+	}
+ul,li{
+	list-style: none;
+}
+
+a{
+	color:inherit;
+	text-decoration: none;
+}
+
+img{
+	border: none;
+}
+i,h4{
+	font-style: normal;
+}
+input, button {
+	display: inline;
+	outline: none;
+	border: none;
+}
